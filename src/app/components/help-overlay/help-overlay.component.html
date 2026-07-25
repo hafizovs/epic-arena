@@ -1,0 +1,30 @@
+@if (ui.helpOpen()) {
+  <div class="ea-help-backdrop" (click)="onBackdrop($event)">
+    <div
+      class="ea-help"
+      role="dialog"
+      aria-modal="true"
+      [attr.aria-label]="i18n.t('help.title')"
+    >
+      <header class="ea-help__head">
+        <h2>{{ i18n.t('help.title') }}</h2>
+        <button
+          #closeBtn
+          type="button"
+          class="ea-btn"
+          [attr.aria-label]="i18n.t('help.close')"
+          (click)="close()"
+        >
+          {{ i18n.t('help.close') }}
+        </button>
+      </header>
+      <p class="ea-help__intro">{{ i18n.t('help.intro') }}</p>
+      <h3>{{ i18n.t('help.hotkeys') }}</h3>
+      <ul class="ea-help__list">
+        @for (key of hotkeyKeys; track key) {
+          <li>{{ i18n.t(key) }}</li>
+        }
+      </ul>
+    </div>
+  </div>
+}

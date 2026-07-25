@@ -1,0 +1,20 @@
+<section class="ea-log">
+  <header class="ea-log__head">{{ i18n.t('log.title') }}</header>
+  <div
+    #scroller
+    class="ea-log__body"
+    role="log"
+    aria-live="polite"
+    (scroll)="onScroll()"
+  >
+    @if (battle.events().length === 0) {
+      <p class="ea-log__empty">{{ i18n.t('log.empty') }}</p>
+    } @else {
+      @for (event of battle.events(); track event.id) {
+        <div class="ea-log__row" [attr.data-color]="event.colorToken">
+          {{ event.messageText }}
+        </div>
+      }
+    }
+  </div>
+</section>

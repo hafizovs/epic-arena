@@ -1,0 +1,48 @@
+<section class="ea-player" aria-label="Time player">
+  <button
+    type="button"
+    class="ea-btn"
+    [disabled]="!canPlay()"
+    [attr.aria-label]="playLabel()"
+    [attr.aria-pressed]="scheduler.playing()"
+    (click)="play()"
+  >
+    {{ playLabel() }}
+  </button>
+  <button
+    type="button"
+    class="ea-btn"
+    [disabled]="!canPause()"
+    [attr.aria-label]="i18n.t('player.pause')"
+    [attr.aria-pressed]="canPause()"
+    (click)="pause()"
+  >
+    {{ i18n.t('player.pause') }}
+  </button>
+  <button
+    type="button"
+    class="ea-btn"
+    [disabled]="!canStep()"
+    [attr.aria-label]="i18n.t('player.step')"
+    (click)="step()"
+  >
+    {{ i18n.t('player.step') }}
+  </button>
+
+  <label class="ea-player__speed">
+    <span>{{ i18n.t('player.speed') }}</span>
+    <input
+      type="range"
+      [min]="min"
+      [max]="max"
+      step="0.25"
+      [value]="battle.animationSpeed()"
+      [attr.aria-valuemin]="min"
+      [attr.aria-valuemax]="max"
+      [attr.aria-valuenow]="battle.animationSpeed()"
+      [attr.aria-label]="i18n.t('player.speed')"
+      (input)="onSpeed($event)"
+    />
+    <span class="ea-player__speed-val">×{{ battle.animationSpeed().toFixed(2) }}</span>
+  </label>
+</section>

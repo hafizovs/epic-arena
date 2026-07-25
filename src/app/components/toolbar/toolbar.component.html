@@ -1,0 +1,40 @@
+<header class="ea-toolbar">
+  <div class="ea-brand">
+    <span class="ea-brand__title">Epic Arena</span>
+    <span class="ea-brand__sub">{{ i18n.t('app.subtitle') }}</span>
+  </div>
+  <div class="ea-toolbar__actions">
+    <button
+      type="button"
+      class="ea-btn"
+      [attr.aria-label]="i18n.t('toolbar.reset')"
+      (click)="reset()"
+    >
+      {{ i18n.t('toolbar.reset') }}
+    </button>
+    <button
+      type="button"
+      class="ea-btn"
+      [attr.aria-label]="i18n.t('toolbar.theme')"
+      (click)="toggleTheme()"
+    >
+      {{ i18n.t('toolbar.theme') }}
+    </button>
+    <button
+      type="button"
+      class="ea-btn"
+      [attr.aria-label]="i18n.t('toolbar.lang')"
+      (click)="toggleLang()"
+    >
+      {{ ui.locale().toUpperCase() }}
+    </button>
+    <button
+      type="button"
+      class="ea-btn"
+      [attr.aria-label]="i18n.t('toolbar.help')"
+      (click)="openHelp()"
+    >
+      {{ i18n.t('toolbar.help') }}
+    </button>
+  </div>
+</header>

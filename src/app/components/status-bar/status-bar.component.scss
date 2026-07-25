@@ -1,0 +1,21 @@
+.ea-status {
+  z-index: 10;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem 1.5rem;
+  padding: 0.45rem 1.25rem;
+  background: var(--ea-bg-panel);
+  border-top: 1px solid var(--ea-border);
+  font-family: var(--ea-font-ui);
+  font-size: 0.85rem;
+  color: var(--ea-text-muted);
+}
+
+.ea-status strong {
+  color: var(--ea-text);
+  font-weight: 600;
+}
+
+.ea-status__winner strong {
+  color: var(--ea-accent);
+}

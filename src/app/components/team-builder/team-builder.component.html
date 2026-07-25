@@ -1,0 +1,127 @@
+<section class="ea-builder" [class.ea-builder--collapsed]="collapsed()">
+  <header class="ea-builder__head">
+    <h2>{{ i18n.t('builder.title') }}</h2>
+    @if (collapsed()) {
+      <button type="button" class="ea-btn" (click)="expandBuilder()">
+        {{ i18n.t('builder.rebuild') }}
+      </button>
+    }
+  </header>
+
+  @if (!collapsed()) {
+    @if (!editable()) {
+      <p class="ea-builder__hint">{{ i18n.t('builder.locked') }}</p>
+    }
+
+    <div class="ea-builder__grid">
+      <div class="ea-builder__team">
+        <h3 class="ea-builder__team-title ea-builder__team-title--alliance">
+          {{ i18n.t('builder.alliance') }}
+        </h3>
+        @for (hero of roster.alliance(); track hero.id) {
+          <div class="ea-slot">
+            <select
+              [disabled]="!editable()"
+              [attr.aria-label]="i18n.t('builder.alliance') + ' ' + (hero.slotIndex + 1)"
+              [value]="hero.classId"
+              (change)="onClassSelect('alliance', hero.slotIndex, $event)"
+            >
+              @for (cls of classes; track cls) {
+                <option [value]="cls">{{ i18n.className(cls) }}</option>
+              }
+            </select>
+            <span class="ea-slot__name">{{ hero.name }}</span>
+            <span class="ea-slot__stats">
+              HP {{ hero.stats.maxHp }} · SPD {{ hero.stats.speed }}
+            </span>
+          </div>
+        }
+        <div class="ea-builder__slot-actions">
+          <button
+            type="button"
+            class="ea-btn"
+            [disabled]="!editable() || roster.alliance().length >= 5"
+            [attr.aria-label]="i18n.t('builder.addSlot')"
+            (click)="addSlot('alliance')"
+          >
+            {{ i18n.t('builder.addSlot') }}
+          </button>
+          <button
+            type="button"
+            class="ea-btn"
+            [disabled]="!editable() || roster.alliance().length <= 3"
+            [attr.aria-label]="i18n.t('builder.removeSlot')"
+            (click)="removeSlot('alliance')"
+          >
+            {{ i18n.t('builder.removeSlot') }}
+          </button>
+        </div>
+      </div>
+
+      <div class="ea-builder__controls">
+        <button
+          type="button"
+          class="ea-btn ea-btn--accent"
+          [disabled]="!editable()"
+          [attr.aria-label]="i18n.t('builder.random')"
+          (click)="randomize()"
+        >
+          {{ i18n.t('builder.random') }}
+        </button>
+        <button
+          type="button"
+          class="ea-btn ea-btn--primary"
+          [disabled]="!editable() || !roster.isValid()"
+          [attr.aria-label]="i18n.t('builder.start')"
+          (click)="startBattle()"
+        >
+          {{ i18n.t('builder.start') }}
+        </button>
+      </div>
+
+      <div class="ea-builder__team">
+        <h3 class="ea-builder__team-title ea-builder__team-title--horde">
+          {{ i18n.t('builder.horde') }}
+        </h3>
+        @for (hero of roster.horde(); track hero.id) {
+          <div class="ea-slot">
+            <select
+              [disabled]="!editable()"
+              [attr.aria-label]="i18n.t('builder.horde') + ' ' + (hero.slotIndex + 1)"
+              [value]="hero.classId"
+              (change)="onClassSelect('horde', hero.slotIndex, $event)"
+            >
+              @for (cls of classes; track cls) {
+                <option [value]="cls">{{ i18n.className(cls) }}</option>
+              }
+            </select>
+            <span class="ea-slot__name">{{ hero.name }}</span>
+            <span class="ea-slot__stats">
+              HP {{ hero.stats.maxHp }} · SPD {{ hero.stats.speed }}
+            </span>
+          </div>
+        }
+        <div class="ea-builder__slot-actions">
+          <button
+            type="button"
+            class="ea-btn"
+            [disabled]="!editable() || roster.horde().length >= 5"
+            [attr.aria-label]="i18n.t('builder.addSlot')"
+            (click)="addSlot('horde')"
+          >
+            {{ i18n.t('builder.addSlot') }}
+          </button>
+          <button
+            type="button"
+            class="ea-btn"
+            [disabled]="!editable() || roster.horde().length <= 3"
+            [attr.aria-label]="i18n.t('builder.removeSlot')"
+            (click)="removeSlot('horde')"
+          >
+            {{ i18n.t('builder.removeSlot') }}
+          </button>
+        </div>
+      </div>
+    </div>
+  }
+</section>
