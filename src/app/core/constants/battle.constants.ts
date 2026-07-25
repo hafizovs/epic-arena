@@ -1,0 +1,12 @@
+export const MIN_TEAM_SIZE = 3;
+export const MAX_TEAM_SIZE = 5;
+export const DEFAULT_TEAM_SIZE = 3;
+export const ANIMATION_SPEED_MIN = 0.5;
+export const ANIMATION_SPEED_MAX = 4;
+export const ANIMATION_SPEED_DEFAULT = 1;
+export const BASE_STEP_DELAY_MS = 700;
+export const ARMOR_SOFT_CAP_PERCENT = 75;
+export const MAGIC_RESIST_SOFT_CAP_PERCENT = 75;
+export const MAX_LOG_EVENTS = 500;
+export const MARKER_TTL_MS = 1200;
+export const DEFAULT_RNG_SEED = 42;
