@@ -1,0 +1,2 @@
+export const LOG_AUTO_SCROLL_THRESHOLD_PX = 48;
+export const HERO_CARD_MIN_WIDTH_PX = 160;

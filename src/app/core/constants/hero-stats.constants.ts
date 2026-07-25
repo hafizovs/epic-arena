@@ -1,0 +1,53 @@
+import type { HeroClassId } from '../models/hero-class.model';
+import type { HeroStats } from '../../models/rpg.interfaces';
+
+export const DEFAULT_STATS_BY_CLASS: Record<HeroClassId, HeroStats> = {
+  warrior: {
+    maxHp: 160,
+    maxMana: 60,
+    speed: 28,
+    physicalAttack: 28,
+    magicalPower: 6,
+    armorPercent: 28,
+    magicResistPercent: 12,
+    critChance: 0.12,
+    critMultiplier: 1.75,
+    dodgeChance: 0.06,
+  },
+  mage: {
+    maxHp: 95,
+    maxMana: 120,
+    speed: 32,
+    physicalAttack: 8,
+    magicalPower: 34,
+    armorPercent: 8,
+    magicResistPercent: 22,
+    critChance: 0.14,
+    critMultiplier: 1.85,
+    dodgeChance: 0.05,
+  },
+  archer: {
+    maxHp: 110,
+    maxMana: 80,
+    speed: 40,
+    physicalAttack: 26,
+    magicalPower: 10,
+    armorPercent: 14,
+    magicResistPercent: 10,
+    critChance: 0.22,
+    critMultiplier: 2.0,
+    dodgeChance: 0.14,
+  },
+  priest: {
+    maxHp: 120,
+    maxMana: 110,
+    speed: 30,
+    physicalAttack: 10,
+    magicalPower: 28,
+    armorPercent: 12,
+    magicResistPercent: 20,
+    critChance: 0.08,
+    critMultiplier: 1.5,
+    dodgeChance: 0.05,
+  },
+};

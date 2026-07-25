@@ -1,0 +1,17 @@
+export type CombatEventKind =
+  | 'roundStart'
+  | 'turnStart'
+  | 'skill'
+  | 'basicAttack'
+  | 'damage'
+  | 'heal'
+  | 'miss'
+  | 'crit'
+  | 'effectApply'
+  | 'effectTick'
+  | 'effectExpire'
+  | 'stunSkip'
+  | 'death'
+  | 'battleStart'
+  | 'battleEnd'
+  | 'system';
