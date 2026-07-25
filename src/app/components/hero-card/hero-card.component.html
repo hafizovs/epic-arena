@@ -1,0 +1,125 @@
+@let h = hero();
+
+<article
+  class="ea-card"
+  [class.ea-card--shake]="shaking()"
+  [style.minWidth.px]="minWidth"
+  [attr.data-team]="h.teamId"
+  [attr.data-alive]="h.isAlive"
+  [attr.data-active]="active()"
+  [attr.data-class]="h.classId"
+  role="group"
+  [attr.aria-label]="h.name + ', ' + i18n.className(h.classId) + ', HP ' + h.resources.hp"
+>
+  <ea-floating-markers
+    [markers]="heroMarkers()"
+    (markerDone)="onMarkerDone($event)"
+  />
+
+  <div class="ea-card__header">
+    <div class="ea-card__portrait" [attr.data-class]="h.classId" aria-hidden="true">
+      <svg viewBox="0 0 64 64" class="ea-card__silhouette">
+        @switch (h.classId) {
+          @case ('warrior') {
+            <path
+              fill="currentColor"
+              d="M32 6 40 18h-5v10h10l6 8-8 4v12l-11 6-11-6V40l-8-4 6-8h10V18h-5z"
+            />
+          }
+          @case ('mage') {
+            <path
+              fill="currentColor"
+              d="M32 4 36 20h12l-10 8 4 14-10-6-10 6 4-14-10-8h12zM28 48h8v12h-8z"
+            />
+          }
+          @case ('archer') {
+            <path
+              fill="currentColor"
+              d="M12 32c0-12 10-22 20-22s20 10 20 22c0 4-1 8-3 11L32 36l-17 7c-2-3-3-7-3-11zm20 6 18 12-4 4-14-8v14h-4V46l-14 8-4-4z"
+            />
+          }
+          @default {
+            <path
+              fill="currentColor"
+              d="M32 8c6 0 10 5 10 12 0 8-10 10-10 18h-4c0-8-10-10-10-18 0-7 4-12 14-12zm-2 34h4v6h8v4H22v-4h8z"
+            />
+          }
+        }
+      </svg>
+    </div>
+    <div class="ea-card__identity">
+      <div class="ea-card__name">{{ h.name }}</div>
+      <div class="ea-card__class">{{ i18n.className(h.classId) }}</div>
+    </div>
+  </div>
+
+  <div
+    class="ea-bar ea-bar--hp"
+    role="progressbar"
+    [attr.aria-valuenow]="h.resources.hp"
+    [attr.aria-valuemin]="0"
+    [attr.aria-valuemax]="h.stats.maxHp"
+    aria-label="HP"
+  >
+    <div class="ea-bar__fill" [style.width.%]="hpPercent()"></div>
+    <span class="ea-bar__text">{{ h.resources.hp }}/{{ h.stats.maxHp }}</span>
+  </div>
+
+  <div
+    class="ea-bar ea-bar--mana"
+    role="progressbar"
+    [attr.aria-valuenow]="h.resources.mana"
+    [attr.aria-valuemin]="0"
+    [attr.aria-valuemax]="h.stats.maxMana"
+    aria-label="Mana"
+  >
+    <div class="ea-bar__fill" [style.width.%]="manaPercent()"></div>
+    <span class="ea-bar__text">{{ h.resources.mana }}/{{ h.stats.maxMana }}</span>
+  </div>
+
+  <div class="ea-card__stats">
+    <span>SPD {{ h.stats.speed }}</span>
+    <span>{{ powerLabel() }}</span>
+  </div>
+
+  <div class="ea-card__effects">
+    @for (fx of h.effects; track fx.id) {
+      <span
+        class="ea-fx"
+        [attr.data-kind]="fx.kind"
+        [title]="effectTitle(fx.kind, fx.remainingTurns)"
+      >
+        <svg viewBox="0 0 16 16" class="ea-fx__icon" aria-hidden="true">
+          @switch (fx.kind) {
+            @case ('bleed') {
+              <path fill="currentColor" d="M8 1c2 3 5 5 5 8a5 5 0 1 1-10 0c0-3 3-5 5-8z" />
+            }
+            @case ('poison') {
+              <path fill="currentColor" d="M8 1 14 8l-2 7H4L2 8z" />
+            }
+            @case ('stun') {
+              <path fill="currentColor" d="M8 1 9.5 6H15l-4 3 1.5 5L8 11l-4.5 3L5 9 1 6h5.5z" />
+            }
+            @case ('slow') {
+              <path fill="currentColor" d="M8 1 10 5h4l-3 3 1 5-4-2-4 2 1-5-3-3h4zM4 13h8v2H4z" />
+            }
+            @case ('haste') {
+              <path fill="currentColor" d="M8 15 6 11H2l3-3-1-5 4 2 4-2-1 5 3 3H10z" />
+            }
+            @case ('taunt') {
+              <path fill="currentColor" d="M3 4h10v2H9v8H7V6H3zM5 12h6v2H5z" />
+            }
+            @default {
+              <path fill="currentColor" d="M8 1 14 4v5c0 4-3 6-6 7-3-1-6-3-6-7V4z" />
+            }
+          }
+        </svg>
+        <span class="ea-fx__turns">{{ fx.remainingTurns }}</span>
+      </span>
+    }
+  </div>
+
+  @if (!h.isAlive) {
+    <div class="ea-card__fallen">{{ i18n.t('arena.fallen') }}</div>
+  }
+</article>

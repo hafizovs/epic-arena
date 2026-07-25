@@ -1,0 +1,44 @@
+.ea-markers {
+  position: absolute;
+  inset: 0;
+  z-index: 20;
+  pointer-events: none;
+  overflow: visible;
+}
+
+.ea-marker {
+  position: absolute;
+  left: 50%;
+  top: 18%;
+  transform: translateX(calc(-50% + var(--ea-ox, 0px)));
+  font-family: var(--ea-font-display);
+  font-size: 0.95rem;
+  font-weight: 700;
+  white-space: nowrap;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.85);
+  animation: ea-float-marker 1.2s ease-out forwards;
+}
+
+.ea-marker[data-variant='damage'] {
+  color: var(--ea-damage);
+}
+
+.ea-marker[data-variant='crit'] {
+  color: var(--ea-crit);
+}
+
+.ea-marker[data-variant='heal'] {
+  color: var(--ea-heal);
+}
+
+.ea-marker[data-variant='miss'] {
+  color: var(--ea-text-muted);
+}
+
+.ea-marker[data-variant='buff'] {
+  color: var(--ea-buff);
+}
+
+.ea-marker[data-variant='debuff'] {
+  color: var(--ea-debuff);
+}

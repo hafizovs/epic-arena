@@ -1,0 +1,24 @@
+<footer class="ea-status">
+  <span>
+    {{ i18n.t('status.round') }}:
+    <strong>{{ battle.round() }}</strong>
+  </span>
+  <span>
+    {{ i18n.t('status.phase') }}:
+    <strong>{{ phaseLabel() }}</strong>
+  </span>
+  <span>
+    {{ i18n.t('status.active') }}:
+    <strong>{{ activeName() }}</strong>
+  </span>
+  <span>
+    {{ i18n.t('status.alive') }}:
+    <strong>{{ aliveLabel() }}</strong>
+  </span>
+  @if (battle.phase() === 'finished') {
+    <span class="ea-status__winner">
+      {{ i18n.t('status.winner') }}:
+      <strong>{{ winnerLabel() }}</strong>
+    </span>
+  }
+</footer>

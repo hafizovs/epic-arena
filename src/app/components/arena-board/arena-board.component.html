@@ -1,0 +1,39 @@
+<section class="ea-arena" aria-label="Arena">
+  <div class="ea-arena__side ea-arena__side--alliance">
+    <h2 class="ea-arena__title ea-arena__title--alliance">
+      {{ i18n.t('arena.alliance') }}
+    </h2>
+    <div class="ea-arena__column">
+      @for (hero of battle.alliance(); track hero.id) {
+        <ea-hero-card
+          [hero]="hero"
+          [active]="battle.activeHeroId() === hero.id"
+          [hitToken]="battle.hitTokens()[hero.id] ?? 0"
+          [markers]="battle.markers()"
+        />
+      }
+    </div>
+  </div>
+
+  <div class="ea-arena__vs" aria-hidden="true">
+    <span class="ea-arena__vs-line"></span>
+    <span class="ea-arena__vs-label">{{ i18n.t('arena.vs') }}</span>
+    <span class="ea-arena__vs-line"></span>
+  </div>
+
+  <div class="ea-arena__side ea-arena__side--horde">
+    <h2 class="ea-arena__title ea-arena__title--horde">
+      {{ i18n.t('arena.horde') }}
+    </h2>
+    <div class="ea-arena__column">
+      @for (hero of battle.horde(); track hero.id) {
+        <ea-hero-card
+          [hero]="hero"
+          [active]="battle.activeHeroId() === hero.id"
+          [hitToken]="battle.hitTokens()[hero.id] ?? 0"
+          [markers]="battle.markers()"
+        />
+      }
+    </div>
+  </div>
+</section>

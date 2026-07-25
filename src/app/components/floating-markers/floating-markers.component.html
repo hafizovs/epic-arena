@@ -1,0 +1,12 @@
+<div class="ea-markers" aria-hidden="true">
+  @for (marker of markers(); track marker.id; let i = $index) {
+    <span
+      class="ea-marker"
+      [attr.data-variant]="marker.variant"
+      [style.--ea-ox.px]="offsetX(i)"
+      (animationend)="onAnimationEnd(marker.id)"
+    >
+      {{ marker.text }}
+    </span>
+  }
+</div>
