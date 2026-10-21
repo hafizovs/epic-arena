@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
-import { GameDirectorComponent } from './components/game-director/game-director.component';
+import { GameDirectorComponent } from './core/layout/game-director/game-director.component';
 
 @Component({
   selector: 'ea-root',

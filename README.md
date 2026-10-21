@@ -1,6 +1,10 @@
+## Live demo
+
+https://hafizovs.github.io/epic-arena/
+
 # Epic Arena
 
-Пошаговый RPG Auto-Battler на Angular 22+ (Signals, zoneless, Dark Fantasy UI).
+Пошаговый RPG-автобаттлер на Angular 22+ (Signals, zoneless, Dark Fantasy UI).
 
 ## Запуск
 

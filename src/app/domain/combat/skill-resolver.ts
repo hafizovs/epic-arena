@@ -6,7 +6,7 @@ import type {
   Hero,
   Skill,
   SkillEffectSpec,
-} from '../../models/rpg.interfaces';
+} from '../../core/models/rpg.interfaces';
 import type { RandomSource } from '../math/rng';
 import {
   computeRawPower,

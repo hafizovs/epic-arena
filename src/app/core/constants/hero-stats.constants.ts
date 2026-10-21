@@ -1,5 +1,5 @@
 import type { HeroClassId } from '../models/hero-class.model';
-import type { HeroStats } from '../../models/rpg.interfaces';
+import type { HeroStats } from '../models/rpg.interfaces';
 
 export const DEFAULT_STATS_BY_CLASS: Record<HeroClassId, HeroStats> = {
   warrior: {

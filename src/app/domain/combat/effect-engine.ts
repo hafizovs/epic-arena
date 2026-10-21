@@ -2,7 +2,7 @@ import type {
   ActiveEffect,
   Hero,
   SkillEffectSpec,
-} from '../../models/rpg.interfaces';
+} from '../../core/models/rpg.interfaces';
 
 export function hasEffect(hero: Hero, kind: ActiveEffect['kind']): boolean {
   return hero.effects.some((e) => e.kind === kind);

@@ -5,7 +5,7 @@ import {
   getDotEffects,
   hasEffect,
 } from './effect-engine';
-import type { Hero } from '../../models/rpg.interfaces';
+import type { Hero } from '../../core/models/rpg.interfaces';
 import { DEFAULT_STATS_BY_CLASS } from '../../core/constants/hero-stats.constants';
 import { SKILLS_BY_CLASS } from '../../core/constants/skill.constants';
 

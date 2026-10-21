@@ -1,4 +1,4 @@
-import type { ActionIntent, Hero } from '../../models/rpg.interfaces';
+import type { ActionIntent, Hero } from '../../core/models/rpg.interfaces';
 import { hasEffect } from '../combat/effect-engine';
 import { fastestEnemy } from '../combat/targeting';
 import type { AiBattleView } from './hero-ai';

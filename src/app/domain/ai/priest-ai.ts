@@ -1,4 +1,4 @@
-import type { ActionIntent, Hero } from '../../models/rpg.interfaces';
+import type { ActionIntent, Hero } from '../../core/models/rpg.interfaces';
 import { getTauntForcedTargetId, hasEffect } from '../combat/effect-engine';
 import { ratio } from '../math/percent';
 import type { AiBattleView } from './hero-ai';

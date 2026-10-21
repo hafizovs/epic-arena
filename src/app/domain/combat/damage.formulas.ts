@@ -7,7 +7,7 @@ import type {
   DamageType,
   Hero,
   SkillScaling,
-} from '../../models/rpg.interfaces';
+} from '../../core/models/rpg.interfaces';
 import { clamp } from '../math/clamp';
 import type { RandomSource } from '../math/rng';
 

@@ -1,5 +1,5 @@
 import type { HeroClassId } from '../models/hero-class.model';
-import type { Skill } from '../../models/rpg.interfaces';
+import type { Skill } from '../models/rpg.interfaces';
 
 export const WARRIOR_SKILLS: Skill[] = [
   {

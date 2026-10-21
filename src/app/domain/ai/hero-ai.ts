@@ -1,4 +1,4 @@
-import type { ActionIntent, Hero } from '../../models/rpg.interfaces';
+import type { ActionIntent, Hero } from '../../core/models/rpg.interfaces';
 import { chooseArcherAction } from './archer-ai';
 import { chooseMageAction } from './mage-ai';
 import { choosePriestAction } from './priest-ai';

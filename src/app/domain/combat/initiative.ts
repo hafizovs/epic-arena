@@ -2,7 +2,7 @@ import {
   HASTE_SPEED_DELTA,
   SLOW_SPEED_DELTA,
 } from '../../core/constants/effect.constants';
-import type { Hero } from '../../models/rpg.interfaces';
+import type { Hero } from '../../core/models/rpg.interfaces';
 
 export function tieBreakerEpsilon(heroId: string): number {
   let hash = 0;

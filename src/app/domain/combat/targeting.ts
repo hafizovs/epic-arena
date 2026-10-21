@@ -1,4 +1,4 @@
-import type { Hero, SkillTargetMode } from '../../models/rpg.interfaces';
+import type { Hero, SkillTargetMode } from '../../core/models/rpg.interfaces';
 import { ratio } from '../math/percent';
 import { getTauntForcedTargetId } from './effect-engine';
 
