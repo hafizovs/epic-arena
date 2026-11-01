@@ -19,6 +19,18 @@
   }
 }
 
+@media (max-width: 767px) {
+  .ea-log__head {
+    padding: 0.45rem 0.75rem;
+    font-size: 0.88rem;
+  }
+
+  .ea-log__body {
+    padding: 0.45rem 0.75rem 0.65rem;
+    font-size: 0.72rem;
+  }
+}
+
 .ea-log__head {
   flex: 0 0 auto;
   padding: 0.55rem 0.9rem;
