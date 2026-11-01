@@ -92,6 +92,19 @@
   text-shadow: 0 0 12px var(--ea-glow);
 }
 
+@media (max-width: 767px) {
+  .ea-arena {
+    padding: 0.65rem 0.75rem;
+    gap: 0.65rem;
+    min-height: 260px;
+  }
+
+  .ea-arena__title {
+    font-size: 0.95rem;
+    letter-spacing: 0.08em;
+  }
+}
+
 @media (max-width: 899px) {
   .ea-arena {
     grid-template-columns: 1fr;

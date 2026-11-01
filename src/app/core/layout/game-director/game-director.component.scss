@@ -7,6 +7,8 @@
   display: grid;
   grid-template-rows: auto auto 1fr auto auto;
   min-height: 100dvh;
+  max-width: 100%;
+  overflow-x: clip;
   background: var(--ea-bg-deep);
   color: var(--ea-text);
 }
@@ -15,12 +17,27 @@
   display: grid;
   grid-template-columns: 1fr;
   min-height: 0;
+  min-width: 0;
   gap: 0;
 }
 
 .ea-log-pane {
   min-height: 160px;
   max-height: 28vh;
+  min-width: 0;
+}
+
+@media (max-width: 767px) {
+  .ea-log-pane {
+    min-height: 132px;
+    max-height: min(36vh, 240px);
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1399px) {
+  .ea-log-pane {
+    max-height: 220px;
+  }
 }
 
 @media (min-width: 1400px) {
